@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - Street Style & Co</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">street style & co</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categorias.html">categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="contacto.html">contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero de Contacto -->
+    <section class="page-hero">
+      <div class="container text-center">
+        <h1>contáctanos</h1>
+        <p>¿Tienes alguna pregunta? Nos encantaría escucharte</p>
+      </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contact">
+      <div class="container">
+        <div class="row">
+          <!-- Formulario -->
+          <div class="col-md-8">
+            <div class="contact-form">
+              <h3>📧 envíanos un mensaje</h3>
+              <form id="contactForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="nombre">nombre</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nombre"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="email">email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="asunto">asunto</label>
+                  <select class="form-control" id="asunto" required>
+                    <option value="">selecciona un asunto</option>
+                    <option value="consulta">consulta general</option>
+                    <option value="pedidos">pedidos y envíos</option>
+                    <option value="devoluciones">devoluciones</option>
+                    <option value="tallas">tallas personalizadas</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="mensaje">mensaje</label>
+                  <textarea
+                    class="form-control"
+                    id="mensaje"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn-custom">enviar mensaje</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Información de Contacto -->
+          <div class="col-md-4">
+            <div class="contact-info">
+              <h3>📍 información</h3>
+
+              <div class="info-item">
+                <h4>📞 teléfono</h4>
+                <p>(528) 456-7890</p>
+                <small>lun - vie, 9:00 - 18:00</small>
+              </div>
+
+              <div class="info-item">
+                <h4>✉️ email</h4>
+                <p>hello@streetstyle.com</p>
+                <small>respuesta en 24 horas</small>
+              </div>
+
+              <div class="info-item">
+                <h4>📍 dirección</h4>
+                <p>Miami, Florida</p>
+                <small>Estados Unidos</small>
+              </div>
+
+              <div class="social-links">
+                <h4>🌐 síguenos</h4>
+                <a href="#" class="social-btn">📷 instagram</a>
+                <a href="#" class="social-btn">📘 facebook</a>
+                <a href="#" class="social-btn">🐦 twitter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <h5>contacto</h5>
+            <p>(528) 456-7890</p>
+            <p>hello@streetstyle.com</p>
+            <p>Miami, Florida</p>
+          </div>
+          <div class="col-md-4">
+            <h5>síguenos</h5>
+            <p><a href="#">instagram</a></p>
+            <p><a href="#">facebook</a></p>
+          </div>
+          <div class="col-md-4">
+            <h5>servicios</h5>
+            <p><a href="#">envíos</a></p>
+            <p><a href="#">devoluciones</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Manejar envío del formulario
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Obtener datos del formulario
+          const nombre = document.getElementById("nombre").value;
+          const email = document.getElementById("email").value;
+          const asunto = document.getElementById("asunto").value;
+          const mensaje = document.getElementById("mensaje").value;
+
+          // Validación simple
+          if (!nombre || !email || !asunto || !mensaje) {
+            alert("Por favor completa todos los campos");
+            return;
+          }
+
+          // Simular envío
+          alert("¡Mensaje enviado! Nos pondremos en contacto pronto.");
+
+          // Limpiar formulario
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
