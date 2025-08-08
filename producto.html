@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Producto - Street Style & Co</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">street style & co</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categorias.html">categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html">contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">inicio</a></li>
+            <li class="breadcrumb-item">
+              <a href="categorias.html">categorías</a>
+            </li>
+            <li class="breadcrumb-item">
+              <span id="product-category">camisetas</span>
+            </li>
+            <li class="breadcrumb-item active" id="product-breadcrumb">
+              producto
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Producto Detail -->
+    <section class="product-detail">
+      <div class="container">
+        <div class="row">
+          <!-- Imagen del Producto -->
+          <div class="col-md-6">
+            <div class="product-image-container">
+              <img
+                id="product-main-image"
+                src=""
+                alt="Producto"
+                class="product-main-img"
+              />
+            </div>
+          </div>
+
+          <!-- Información del Producto -->
+          <div class="col-md-6">
+            <div class="product-info-detail">
+              <h1 id="product-name">Nombre del Producto</h1>
+              <p class="product-price-detail" id="product-price">$25</p>
+
+              <div class="product-description">
+                <h3>descripción</h3>
+                <p id="product-description">Descripción del producto...</p>
+              </div>
+
+              <!-- Selector de Tallas -->
+              <div class="size-selector">
+                <h3>talla</h3>
+                <div class="size-options">
+                  <button class="size-btn" data-size="XS">XS</button>
+                  <button class="size-btn" data-size="S">S</button>
+                  <button class="size-btn selected" data-size="M">M</button>
+                  <button class="size-btn" data-size="L">L</button>
+                  <button class="size-btn" data-size="XL">XL</button>
+                </div>
+                <p class="size-guide">
+                  ¿Necesitas ayuda con las tallas?
+                  <a href="#" onclick="showSizeGuide()">Guía de tallas</a>
+                </p>
+              </div>
+
+              <!-- Cantidad -->
+              <div class="quantity-selector">
+                <h3>cantidad</h3>
+                <div class="quantity-controls">
+                  <button class="qty-btn" onclick="changeQuantity(-1)">
+                    -
+                  </button>
+                  <span class="quantity" id="quantity">1</span>
+                  <button class="qty-btn" onclick="changeQuantity(1)">+</button>
+                </div>
+              </div>
+
+              <!-- Botones de Acción -->
+              <div class="product-actions">
+                <button class="btn-add-cart" onclick="addToCart()">
+                  agregar al carrito
+                </button>
+                <button class="btn-buy-now" onclick="buyNow()">
+                  comprar ahora
+                </button>
+              </div>
+
+              <!-- Información Adicional -->
+              <div class="product-features">
+                <div class="feature-item">
+                  <span class="feature-icon">🚚</span>
+                  <span>Envío gratis en pedidos +$50</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">↩️</span>
+                  <span>Devoluciones gratuitas 30 días</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">🔒</span>
+                  <span>Compra segura y protegida</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Productos Relacionados -->
+    <section class="related-products">
+      <div class="container">
+        <h2 class="text-center mb-5">productos relacionados</h2>
+        <div class="row" id="related-products-grid">
+          <!-- Se cargan dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Guía de Tallas -->
+    <div class="modal fade" id="sizeGuideModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">guía de tallas</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="size-chart">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Talla</th>
+                    <th>Pecho (cm)</th>
+                    <th>Cintura (cm)</th>
+                    <th>Cadera (cm)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>XS</td>
+                    <td>86-91</td>
+                    <td>66-71</td>
+                    <td>91-96</td>
+                  </tr>
+                  <tr>
+                    <td>S</td>
+                    <td>91-96</td>
+                    <td>71-76</td>
+                    <td>96-101</td>
+                  </tr>
+                  <tr>
+                    <td>M</td>
+                    <td>96-101</td>
+                    <td>76-81</td>
+                    <td>101-106</td>
+                  </tr>
+                  <tr>
+                    <td>L</td>
+                    <td>101-106</td>
+                    <td>81-86</td>
+                    <td>106-111</td>
+                  </tr>
+                  <tr>
+                    <td>XL</td>
+                    <td>106-111</td>
+                    <td>86-91</td>
+                    <td>111-116</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <h5>contacto</h5>
+            <p>(528) 456-7890</p>
+            <p>hello@streetstyle.com</p>
+            <p>Miami, Florida</p>
+          </div>
+          <div class="col-md-4">
+            <h5>síguenos</h5>
+            <p><a href="#">instagram</a></p>
+            <p><a href="#">facebook</a></p>
+          </div>
+          <div class="col-md-4">
+            <h5>servicios</h5>
+            <p><a href="#">envíos</a></p>
+            <p><a href="#">devoluciones</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Base de datos de productos
+      const productDatabase = {
+        "another-sweet-summer": {
+          name: "another sweet summer",
+          price: "$25",
+          category: "camisetas",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754620225/Another_Sweet_Summer_Oversized_T-Shirt_rxsa9l.jpg",
+          description:
+            "Camiseta oversized con diseño veraniego único. Perfecta para crear looks casuales con mucha personalidad. Fabricada en algodón 100% orgánico para máxima comodidad.",
+          features: [
+            "100% Algodón orgánico",
+            "Corte oversized",
+            "Diseño exclusivo",
+            "Pre-encogida",
+          ],
+        },
+        "new-york-bagel": {
+          name: "new york bagel",
+          price: "$22",
+          category: "camisetas",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676957/New_York_Bagel_T-Shirt_l8cgwb.jpg",
+          description:
+            "Camiseta con gráfico inspirado en la cultura neoyorquina. Ideal para expresar tu amor por la gran manzana con estilo urbano auténtico.",
+          features: [
+            "Gráfico de alta calidad",
+            "Corte regular",
+            "Algodón suave",
+            "Diseño NYC",
+          ],
+        },
+        "sunday-driving": {
+          name: "sunday driving",
+          price: "$20",
+          category: "camisetas",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754620225/Sunday_Driving_T-Shirt_ybtayi.jpg",
+          description:
+            "Camiseta con vibe relajado perfecto para los domingos. Diseño minimalista que combina con cualquier look casual.",
+          features: [
+            "Estilo minimalista",
+            "Tejido transpirable",
+            "Fit cómodo",
+            "Fácil cuidado",
+          ],
+        },
+        "slow-sunday-coffee": {
+          name: "slow sunday coffee club",
+          price: "$24",
+          category: "camisetas",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676958/Slow_Sunday_Coffee_Club_T-Shirt_bpevst.jpg",
+          description:
+            "Perfecta para los amantes del café y los domingos tranquilos. Diseño exclusivo que refleja el estilo de vida relajado.",
+          features: [
+            "Diseño café temático",
+            "Algodón premium",
+            "Corte cómodo",
+            "Estampado duradero",
+          ],
+        },
+        "people-not-products": {
+          name: "people are not products",
+          price: "$26",
+          category: "camisetas",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676958/People_Are_Not_Products_-_Natural_-_S_b9y9zc.jpg",
+          description:
+            "Mensaje poderoso en una camiseta de calidad. Perfecto para quienes quieren hacer una declaración con su ropa.",
+          features: [
+            "Mensaje social",
+            "Tela natural",
+            "Impresión ecológica",
+            "Fit regular",
+          ],
+        },
+        "ride-a-lot-hoodie": {
+          name: "ride a lot hoodie",
+          price: "$45",
+          category: "hoodies",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676958/Ride_A_Lot_Oversized_Hoodie_cqd40x.jpg",
+          description:
+            "Hoodie oversized perfecto para los que viven en movimiento. Comodidad y estilo para tu día a día.",
+          features: [
+            "Corte oversized",
+            "Capucha ajustable",
+            "Bolsillo canguro",
+            "Algodón premium",
+          ],
+        },
+        "no-days-off-hoodie": {
+          name: "no days off hoodie",
+          price: "$42",
+          category: "hoodies",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676957/No_Days_Off_Oversize_Hoodie_qmxw8t.jpg",
+          description:
+            "Para los que nunca paran. Hoodie que refleja tu mentalidad de constante crecimiento y dedicación.",
+          features: [
+            "Mensaje motivacional",
+            "Tejido resistente",
+            "Fit oversized",
+            "Calidad superior",
+          ],
+        },
+        "fixed-waist-cargo": {
+          name: "fixed waist cargo pants",
+          price: "$38",
+          category: "cargo pants",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676957/Fixed_Waist_Relaxed_Fit_Cargo_Pants___boohooMAN_USA_lknz1m.jpg",
+          description:
+            "Cargo pants con cintura fija y fit relajado. Múltiples bolsillos para funcionalidad y estilo urbano.",
+          features: [
+            "Múltiples bolsillos",
+            "Fit relajado",
+            "Cintura fija",
+            "Tela durable",
+          ],
+        },
+        "buckle-cargo-trouser": {
+          name: "buckle cargo trouser",
+          price: "$35",
+          category: "cargo pants",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676957/Elasticated_Waist_Relaxed_Fit_Buckle_Cargo_Trouser___boohooMAN_fdzghy.jpg",
+          description:
+            "Cargo trouser con cintura elástica y detalles de hebilla. Comodidad y estilo en un solo pantalón.",
+          features: [
+            "Cintura elástica",
+            "Detalles de hebilla",
+            "Fit relajado",
+            "Estilo urbano",
+          ],
+        },
+        "coors-hat-brown": {
+          name: "coors hat brown",
+          price: "$25",
+          category: "accesorios",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676957/American_Needle_Coors_Hat_-_Brown_CreamMen_s_yfmwdt.jpg",
+          description:
+            "Gorra clásica con logo de Coors en tonos marrones. Perfecta para completar tu look casual.",
+          features: [
+            "Logo bordado",
+            "Ajuste cómodo",
+            "Colores clásicos",
+            "Calidad premium",
+          ],
+        },
+        "olive-snapback": {
+          name: "olive snapback",
+          price: "$28",
+          category: "accesorios",
+          image:
+            "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676958/Olive_Two-Tone_Script_Snapback_-_Macade_Golf_nu8dze.jpg",
+          description:
+            "Snapback en tonos oliva con diseño de dos tonos. Estilo moderno para complementar cualquier outfit.",
+          features: [
+            "Diseño two-tone",
+            "Ajuste snapback",
+            "Color oliva",
+            "Script bordado",
+          ],
+        },
+      };
+
+      // Obtener parámetros de URL
+      function getProductFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("product") || "another-sweet-summer";
+      }
+
+      // Cargar información del producto
+      function loadProduct() {
+        const productId = getProductFromURL();
+        const product = productDatabase[productId];
+
+        if (product) {
+          document.getElementById("product-name").textContent = product.name;
+          document.getElementById("product-price").textContent = product.price;
+          document.getElementById("product-main-image").src = product.image;
+          document.getElementById("product-main-image").alt = product.name;
+          document.getElementById("product-description").textContent =
+            product.description;
+          document.getElementById("product-category").textContent =
+            product.category;
+          document.getElementById("product-breadcrumb").textContent =
+            product.name;
+          document.title = `${product.name} - Street Style & Co`;
+        }
+      }
+
+      // Selector de tallas
+      document.querySelectorAll(".size-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll(".size-btn")
+            .forEach((b) => b.classList.remove("selected"));
+          this.classList.add("selected");
+        });
+      });
+
+      // Control de cantidad
+      function changeQuantity(change) {
+        const quantityEl = document.getElementById("quantity");
+        let quantity = parseInt(quantityEl.textContent);
+        quantity = Math.max(1, quantity + change);
+        quantityEl.textContent = quantity;
+      }
+
+      // Agregar al carrito
+      function addToCart() {
+        const product = getProductFromURL();
+        const size = document.querySelector(".size-btn.selected").dataset.size;
+        const quantity = document.getElementById("quantity").textContent;
+
+        alert(
+          `${productDatabase[product].name} (Talla ${size}, Cantidad: ${quantity}) agregado al carrito!`
+        );
+      }
+
+      // Comprar ahora
+      function buyNow() {
+        const product = getProductFromURL();
+        const size = document.querySelector(".size-btn.selected").dataset.size;
+        const quantity = document.getElementById("quantity").textContent;
+
+        alert(
+          `Redirigiendo a checkout para ${productDatabase[product].name} (Talla ${size}, Cantidad: ${quantity})`
+        );
+      }
+
+      // Mostrar guía de tallas
+      function showSizeGuide() {
+        const modal = new bootstrap.Modal(
+          document.getElementById("sizeGuideModal")
+        );
+        modal.show();
+      }
+
+      // Cargar productos relacionados
+      function loadRelatedProducts() {
+        const currentProduct = getProductFromURL();
+        const relatedGrid = document.getElementById("related-products-grid");
+
+        Object.keys(productDatabase).forEach((key) => {
+          if (key !== currentProduct) {
+            const product = productDatabase[key];
+            relatedGrid.innerHTML += `
+                        <div class="col-md-4 mb-4">
+                            <div class="product-card">
+                                <img src="${product.image}" alt="${product.name}">
+                                <div class="product-info">
+                                    <h4>${product.name}</h4>
+                                    <p class="price">${product.price}</p>
+                                    <button class="btn-product" onclick="window.location.href='producto.html?product=${key}'">ver producto</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+          }
+        });
+      }
+
+      // Inicializar página
+      document.addEventListener("DOMContentLoaded", function () {
+        loadProduct();
+        loadRelatedProducts();
+      });
+    </script>
+  </body>
+</html>

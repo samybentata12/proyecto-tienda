@@ -148,23 +148,26 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Base de datos simple de productos
+      // Base de datos completa de productos
       const productos = {
         camisetas: [
           {
             name: "slow sunday coffee club",
             price: "$24",
             img: "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676958/Slow_Sunday_Coffee_Club_T-Shirt_bpevst.jpg",
+            id: "slow-sunday-coffee",
           },
           {
             name: "people are not products",
             price: "$26",
             img: "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676958/People_Are_Not_Products_-_Natural_-_S_b9y9zc.jpg",
+            id: "people-not-products",
           },
           {
             name: "sunday driving",
             price: "$20",
             img: "https://res.cloudinary.com/dgeln2puj/image/upload/v1754620225/Sunday_Driving_T-Shirt_ybtayi.jpg",
+            id: "sunday-driving",
           },
         ],
         hoodies: [
@@ -172,11 +175,13 @@
             name: "ride a lot hoodie",
             price: "$45",
             img: "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676958/Ride_A_Lot_Oversized_Hoodie_cqd40x.jpg",
+            id: "ride-a-lot-hoodie",
           },
           {
             name: "no days off hoodie",
             price: "$42",
             img: "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676957/No_Days_Off_Oversize_Hoodie_qmxw8t.jpg",
+            id: "no-days-off-hoodie",
           },
         ],
         "cargo-pants": [
@@ -184,11 +189,13 @@
             name: "fixed waist cargo pants",
             price: "$38",
             img: "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676957/Fixed_Waist_Relaxed_Fit_Cargo_Pants___boohooMAN_USA_lknz1m.jpg",
+            id: "fixed-waist-cargo",
           },
           {
             name: "buckle cargo trouser",
             price: "$35",
             img: "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676957/Elasticated_Waist_Relaxed_Fit_Buckle_Cargo_Trouser___boohooMAN_fdzghy.jpg",
+            id: "buckle-cargo-trouser",
           },
         ],
         accesorios: [
@@ -196,38 +203,55 @@
             name: "coors hat brown",
             price: "$25",
             img: "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676957/American_Needle_Coors_Hat_-_Brown_CreamMen_s_yfmwdt.jpg",
+            id: "coors-hat-brown",
           },
           {
             name: "olive snapback",
             price: "$28",
             img: "https://res.cloudinary.com/dgeln2puj/image/upload/v1754676958/Olive_Two-Tone_Script_Snapback_-_Macade_Golf_nu8dze.jpg",
+            id: "olive-snapback",
           },
         ],
       };
 
       // Mostrar productos de una categoría
       function showProducts(categoria) {
+        console.log("Mostrando productos de:", categoria);
+
+        // Ocultar categorías
         document.querySelector(".categories").style.display = "none";
+
+        // Mostrar sección de productos
         document.getElementById("productList").style.display = "block";
+
+        // Actualizar título
         document.getElementById("categoryTitle").textContent = categoria;
 
+        // Limpiar grid
         const grid = document.getElementById("productGrid");
         grid.innerHTML = "";
 
-        productos[categoria].forEach((producto) => {
-          grid.innerHTML += `
-                    <div class="col-md-4 mb-4">
-                        <div class="product-card">
-                            <img src="${producto.img}" alt="${producto.name}">
-                            <div class="product-info">
-                                <h4>${producto.name}</h4>
-                                <p class="price">${producto.price}</p>
-                                <button class="btn-product">ver producto</button>
+        // Verificar que la categoría existe
+        if (productos[categoria]) {
+          productos[categoria].forEach((producto) => {
+            const productHTML = `
+                        <div class="col-md-4 mb-4">
+                            <div class="product-card">
+                                <img src="${producto.img}" alt="${producto.name}">
+                                <div class="product-info">
+                                    <h4>${producto.name}</h4>
+                                    <p class="price">${producto.price}</p>
+                                    <button class="btn-product" onclick="goToProduct('${producto.id}')">ver producto</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `;
-        });
+                    `;
+            grid.innerHTML += productHTML;
+          });
+        } else {
+          grid.innerHTML =
+            "<p>No se encontraron productos en esta categoría.</p>";
+        }
       }
 
       // Volver a mostrar categorías
@@ -235,6 +259,15 @@
         document.querySelector(".categories").style.display = "block";
         document.getElementById("productList").style.display = "none";
       }
+
+      // Ir a página de producto
+      function goToProduct(productId) {
+        window.location.href = `producto.html?product=${productId}`;
+      }
+
+      // Debug: Verificar que el JavaScript se carga
+      console.log("JavaScript cargado correctamente");
+      console.log("Productos disponibles:", Object.keys(productos));
     </script>
   </body>
 </html>
