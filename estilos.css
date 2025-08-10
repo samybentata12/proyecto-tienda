@@ -37,7 +37,7 @@ body {
   color: var(--primary-color) !important;
   font-size: 1.5rem;
   font-weight: bold;
-  text-transform: lowercase;
+  text-transform: capitalize; /* Cambia a capitalize para Raíz Urbana */
 }
 
 .navbar-brand:hover {
@@ -47,7 +47,7 @@ body {
 .navbar-nav .nav-link {
   color: var(--text-gray) !important;
   font-weight: 500;
-  text-transform: lowercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   margin: 0 1rem;
 }
 
@@ -80,7 +80,7 @@ body {
 .hero h1 {
   color: var(--primary-color);
   font-size: 3.5rem;
-  text-transform: uppercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -103,7 +103,7 @@ body {
 .page-hero h1 {
   color: var(--primary-color);
   font-size: 2.5rem;
-  text-transform: uppercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -206,7 +206,7 @@ body {
 .about h2 {
   color: var(--primary-color);
   font-size: 2.2rem;
-  text-transform: uppercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   font-weight: bold;
   margin-bottom: 2rem;
 }
@@ -229,7 +229,7 @@ body {
 .products h2 {
   color: var(--primary-color);
   font-size: 2.2rem;
-  text-transform: uppercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   font-weight: bold;
   letter-spacing: 2px;
 }
@@ -266,7 +266,7 @@ body {
 .product-info h4 {
   color: var(--text-white);
   font-size: 1.1rem;
-  text-transform: lowercase;
+  text-transform: capitalize; /* CAMBIO: De lowercase a capitalize para la primera letra en mayúscula */
   margin-bottom: 0.5rem;
 }
 
@@ -318,7 +318,7 @@ body {
 .category-info h3 {
   color: var(--primary-color);
   font-size: 1.3rem;
-  text-transform: lowercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -372,14 +372,14 @@ body {
 .contact-form h3 {
   color: var(--primary-color);
   font-size: 1.5rem;
-  text-transform: lowercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   margin-bottom: 1.5rem;
 }
 
 .contact-form label {
   color: var(--primary-color);
   font-weight: 600;
-  text-transform: lowercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   margin-bottom: 0.5rem;
   display: block;
 }
@@ -410,7 +410,7 @@ body {
 .contact-info h3 {
   color: var(--primary-color);
   font-size: 1.3rem;
-  text-transform: lowercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   margin-bottom: 1.5rem;
 }
 
@@ -478,7 +478,7 @@ footer h5 {
   color: var(--primary-color);
   font-size: 1.1rem;
   font-weight: bold;
-  text-transform: uppercase;
+  text-transform: none; /* CAMBIO: De uppercase a none para respetar mayúsculas del HTML */
   margin-bottom: 1rem;
 }
 
@@ -754,7 +754,7 @@ footer a:hover {
 .breadcrumb-item a {
   color: var(--text-gray);
   text-decoration: none;
-  text-transform: lowercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
 }
 
 .breadcrumb-item a:hover {
@@ -764,7 +764,7 @@ footer a:hover {
 .breadcrumb-item.active,
 .breadcrumb-item span {
   color: var(--primary-color);
-  text-transform: lowercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
 }
 
 /* Sección de Detalle del Producto */
@@ -798,7 +798,7 @@ footer a:hover {
 .product-info-detail h1 {
   color: var(--primary-color);
   font-size: 2.5rem;
-  text-transform: lowercase;
+  text-transform: capitalize; /* CAMBIO: De lowercase a capitalize para la primera letra en mayúscula */
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -818,7 +818,7 @@ footer a:hover {
 .product-description h3 {
   color: var(--text-primary);
   font-size: 1.3rem;
-  text-transform: lowercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -1009,7 +1009,7 @@ footer a:hover {
 .related-products h2 {
   color: var(--primary-color);
   font-size: 2.2rem;
-  text-transform: lowercase;
+  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
   font-weight: bold;
 }
 
