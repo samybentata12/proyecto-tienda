@@ -68,49 +68,133 @@ body {
    HERO SECTION (INDEX)
 ========================================== */
 .hero {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    var(--dark-secondary) 100%
-  );
-  padding: 80px 0;
+  position: relative;
+  padding: 60px 0;
   text-align: center;
+  min-height: 400px; /* Altura base más moderada */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* CAMBIO: De cover a contain para mostrar imagen completa */
+  object-position: center;
+  background: var(--dark-bg); /* Fondo oscuro para áreas vacías */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    26,
+    26,
+    26,
+    0.6
+  ); /* CAMBIO: Reducido de 0.7 a 0.6 para mostrar más la imagen */
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
 }
 
 .hero h1 {
   color: var(--primary-color);
   font-size: 3.5rem;
-  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
+  text-transform: none;
   font-weight: bold;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero p {
   color: var(--text-white);
   font-size: 1.2rem;
   margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* ==========================================
    HERO DE PÁGINAS INTERNAS
 ========================================== */
 .page-hero {
-  background: var(--dark-secondary);
+  position: relative;
   padding: 60px 0;
   text-align: center;
+  min-height: 350px; /* Altura base más moderada */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.page-hero .hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.page-hero .hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* CAMBIO: De cover a contain para mostrar imagen completa */
+  object-position: center;
+  background: var(--dark-bg); /* Fondo oscuro para áreas vacías */
+}
+
+.page-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    26,
+    26,
+    26,
+    0.6
+  ); /* CAMBIO: Reducido de 0.7 a 0.6 para mostrar más la imagen */
+  z-index: 2;
+}
+
+.page-hero .hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
 }
 
 .page-hero h1 {
   color: var(--primary-color);
   font-size: 2.5rem;
-  text-transform: none; /* CAMBIO: De lowercase a none para respetar mayúsculas */
+  text-transform: none;
   font-weight: bold;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .page-hero p {
   color: var(--text-gray);
   font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* ==========================================
@@ -526,6 +610,7 @@ footer a:hover {
 @media (max-width: 768px) {
   .hero {
     padding: 60px 0;
+    min-height: 400px;
   }
 
   .hero h1 {
@@ -538,6 +623,7 @@ footer a:hover {
 
   .page-hero {
     padding: 40px 0;
+    min-height: 300px;
   }
 
   .page-hero h1 {
@@ -565,8 +651,16 @@ footer a:hover {
 }
 
 @media (max-width: 576px) {
+  .hero {
+    min-height: 350px;
+  }
+
   .hero h1 {
     font-size: 1.8rem;
+  }
+
+  .page-hero {
+    min-height: 250px;
   }
 
   .page-hero h1 {
